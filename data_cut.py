@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 #coding=utf-8
 
+import jieba.analyse
 import jieba.posseg as pseg
 import pandas as pd
 
@@ -25,6 +26,7 @@ def cutTest():
     filename = './data/test.csv'
     data = pd.read_csv(filename, encoding="utf-8", header=None)
     data = data.iloc[:,1]
+    jieba.load_userdict("./data/user_dict.txt")
     cut(data, './data/test_cut.txt')
 
 
